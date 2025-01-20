@@ -13,6 +13,7 @@ onlyEvens (x:xs) = if (mod x 2 == 0)
                     else onlyEvens xs
 
 -- join takes a list of strings and outputs a single string that is the concatenation of all the strings in the list
+join :: [String] -> [Char]
 join [] = ""
 join [x] = x
 join (x:xs) = x ++ join xs

@@ -84,4 +84,4 @@ stack xs = error "TODO implement stack"
 -- NOTE use the map function combined with a lambda expression to do the division
 -----------------------------------------------------------------------------------------------------------
 halves :: Integral a => [a] -> [a]
-halves xs = error "TODO implement halves"
+halves = error "TODO implement halves"
