@@ -4,6 +4,7 @@ double x = x + x
 
 sumOfSquares x y = x*x + y*y
 
+absVal :: (Ord a, Num a) => a -> a
 absVal x = if x >= 0 then x else -x
 
 onlyEvens [] = []

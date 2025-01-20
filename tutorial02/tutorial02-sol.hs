@@ -84,6 +84,13 @@ xor'' :: Bool -> Bool -> Bool
 xor'' x y = if x then not y
             else y
 
+-- Example using case
+xor''' :: Bool -> Bool -> Bool
+xor''' x y = case (x, y) of
+  (True, False) -> True
+  (False, True) -> True
+  _ -> False
+
 -- Join Function: For getting you to think about how to solve Exercise 2
 -- The join function takes a list of strings and concatenates them together.
 join :: [String] -> [Char]
