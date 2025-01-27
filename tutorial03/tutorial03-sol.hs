@@ -16,9 +16,9 @@
 -- 4. Function Composition
 -- 5. Type Classes
 -- 6. Overloaded Functions
--- 7. List Patterns (Refresher)
--- 8. Lambda Expressions
--- 9. Recursion (Refresher)
+-- 7. Lambda Expressions
+-- 8. Recursion (Map)
+-- 9. List Patterns (Refresher)
 
 --
 -- 1. Curried Functions

@@ -6,5 +6,5 @@
 -- 5. Type Classes
 -- 6. Overloaded Functions
 -- 7. Lambda Expressions
--- 8. Recursion
+-- 8. Recursion (Map)
 -- 9. List Patterns (Refresher)
