@@ -15,10 +15,11 @@
 -- 3. Polymorphic Functions
 -- 4. Function Composition
 -- 5. Type Classes
--- 6. Overloaded Functions
--- 7. Lambda Expressions
--- 8. Recursion (Map)
--- 9. List Patterns (Refresher)
+-- 6. Predefined Classes
+-- 7. Overloaded Functions
+-- 8. Lambda Expressions
+-- 9. Recursion (Map)
+-- 10. List Patterns (Refresher)
 
 --
 -- 1. Curried Functions
@@ -192,7 +193,10 @@ instance Example Bool where
 -- Ord is a subclass of Eq
 -- Ord is used for types that have an ordering
 
--- Overloaded Functions
+--
+-- 7. Overloaded Functions
+--
+
 -- Polymorphic functions are overloaded if the type contains one or more class constraints
 -- sum works for any type.. as long as the type a is a member of the Num class
 -- the => symbol is a class constraint, it means "is a member of"
@@ -231,7 +235,7 @@ divide'' x y = x / y
 -- Int is a fixed size, usually 32 or 64 bits
 
 --
--- 7. Lambda Expressions
+-- 8. Lambda Expressions
 --
 
 -- functions without a name are called lambda expressions
@@ -265,7 +269,7 @@ sum1 xs = map add1 xs
 sum1' xs = map (\x -> x + 1) xs
 
 --
--- 8. Recursion
+-- 9. Recursion
 --
 map'' :: (a -> b) -> [a] -> [b]
 map'' _ [] = []
@@ -280,7 +284,7 @@ map'' f (x:xs) = f x : map'' f xs
 -- look at the screenshot in the folder for a visual representation
 
 --
--- 7. List Patterns
+-- 10. List Patterns
 --
 
 -- [1,2,3,4,5] is the same as 1:(2:(3:(4:(5:[]))))
