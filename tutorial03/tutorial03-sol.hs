@@ -9,8 +9,19 @@
 -- Sometimes this is necessary to ensure the code compiles, but it's also good practice to understand how these functions work
 --
 
+-- Today's Topics
+-- 1. Curried Functions
+-- 2. Uncurried Functions
+-- 3. Polymorphic Functions
+-- 4. Function Composition
+-- 5. Type Classes
+-- 6. Overloaded Functions
+-- 7. List Patterns (Refresher)
+-- 8. Lambda Expressions
+-- 9. Recursion (Refresher)
+
 --
--- Curried Functions
+-- 1. Curried Functions
 --
 
 add :: Int -> Int -> Int
@@ -29,11 +40,11 @@ add3' :: Int -> Int
 add3' y = add 3 y
 
 -- Functions are curried by default in Haskell
--- useful for working with higher order functions
-result = map (+1) [1,2,3,4,5]
+-- useful for working with higher order functions (functions that take functions as arguments and returns a function as a result), such as map
+result = map (add 3) [1, 2, 3]
 
 --
--- Uncurried Functions
+-- 2. Uncurried Functions
 --
 
 -- use a tuple to pass multiple arguments
@@ -42,7 +53,7 @@ add' :: (Int, Int) -> Int
 add' (x, y) = x + y
 
 --
--- Polymorphic Functions
+-- 3. Polymorphic Functions
 --
 
 -- A function that takes in a list of any type and returns the length of the list
@@ -73,7 +84,8 @@ reverse' :: [a] -> [a]
 reverse' [] = []
 reverse' (x:xs) = reverse' xs ++ [x]
 
--- for instance the following isn't allowed
+-- for instance the following isn't allowed, since we don't perform any
+-- operations to change a into some other type
 -- reverse'' :: [a] -> [b]
 -- reverse'' [] = []
 -- reverse'' (x:xs) = reverse'' xs ++ [x]
@@ -106,7 +118,10 @@ map' f (x:xs) = f x : map' f xs
 -- [a] = [(x, y)]
 -- [b] = [x]
 
--- Function Composition
+--
+-- 4.Function Composition
+--
+
 -- if a function g has output of the same type as the input of function f
 -- we can compose the two functions in the function z
 -- z = f . g
@@ -123,7 +138,10 @@ lastElem' xs = head' (reverse' xs)
 f (x:xs) = foldr ((+) . (+2)) 0 (tail (reverse (x:xs)))
 f' (x:xs) = foldr ((+) . (+2)) 0 (reverse $ init x:xs)
 
--- Type Classes
+--
+-- 5. Type Classes
+--
+
 -- Define functions with different implementations depending on the type of their input (methods)
 -- the EQ class contains methods!
 class Eq' a where
@@ -158,7 +176,15 @@ instance Example Bool where
 -- ex 3
 -- ex True
 
--- Predefined Classes
+
+--
+-- 6. Predefined Classes
+--
+
+-- These are classes that are predefined in the Prelude
+-- as we've seen, Eq is a class that defines how == and /= work for different
+-- types
+
 -- Show the Image in the folder...
 -- What does the => symbol mean?
 -- It's a class constraint, it means "is a member of"
@@ -205,26 +231,7 @@ divide'' x y = x / y
 -- Int is a fixed size, usually 32 or 64 bits
 
 --
--- List Patterns
---
-
--- [1,2,3,4,5] is the same as 1:(2:(3:(4:(5:[]))))
--- this is called cons notation
--- elements until the the empty list are separated by colons
-
--- x:xs doesn't pattern match on the empty list, so remember to handle that case!
--- Functions can be defined using (x:xs) patterns
--- x is the head of the list, xs is the tail of the list
-head :: [a] -> a
-head [] = error "Empty list" -- no way to handle this case due to the type signature
-head (x:xs) = x
-
-tail :: [a] -> [a]
-tail [] = []
-tail (x:xs) = xs
-
---
--- Lambda Expressions
+-- 7. Lambda Expressions
 --
 
 -- functions without a name are called lambda expressions
@@ -258,7 +265,7 @@ sum1 xs = map add1 xs
 sum1' xs = map (\x -> x + 1) xs
 
 --
--- Recursion
+-- 8. Recursion
 --
 map'' :: (a -> b) -> [a] -> [b]
 map'' _ [] = []
@@ -271,3 +278,22 @@ map'' f (x:xs) = f x : map'' f xs
 -- [1 + 1, 2 + 1, 3 + 1]
 -- [2, 3, 4]
 -- look at the screenshot in the folder for a visual representation
+
+--
+-- 7. List Patterns
+--
+
+-- [1,2,3,4,5] is the same as 1:(2:(3:(4:(5:[]))))
+-- this is called cons notation
+-- elements until the the empty list are separated by colons
+
+-- x:xs doesn't pattern match on the empty list, so remember to handle that case!
+-- Functions can be defined using (x:xs) patterns
+-- x is the head of the list, xs is the tail of the list
+head :: [a] -> a
+head [] = error "Empty list" -- no way to handle this case due to the type signature
+head (x:xs) = x
+
+tail' :: [a] -> [a]
+tail' [] = []
+tail' (x:xs) = xs

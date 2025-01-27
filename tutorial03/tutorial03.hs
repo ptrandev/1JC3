@@ -1,0 +1,10 @@
+-- Today's Topics
+-- 1. Curried Functions
+-- 2. Uncurried Functions
+-- 3. Polymorphic Functions
+-- 4. Function Composition
+-- 5. Type Classes
+-- 6. Overloaded Functions
+-- 7. Lambda Expressions
+-- 8. Recursion
+-- 9. List Patterns (Refresher)
