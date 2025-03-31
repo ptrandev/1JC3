@@ -1,6 +1,8 @@
 -- Table of Contents
 -- 1. Type Review
 -- 2. Overloading
+-- 3, Type Class Interface
+-- 4. Vector Spaces
 
 --
 -- 1. Type Review
